@@ -167,7 +167,7 @@ def children_camp_list (request):
     }
     return render(request, 'camps.html', context=context)
 
-def camp_detail(request, camp_id):
+def children_camp_detail(request, camp_id):
     if request.method == 'POST':
         camp = get_object_or_404(ChildrenCamp, pk=camp_id)
         content = request.POST['comment']
