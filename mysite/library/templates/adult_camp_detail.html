@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="main-style">
+  <div class="container camp">
+    <h4>{{ camp.name }}</h4>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>Stovyklos aprašymas:</th>
+          <td>{{ camp.summary }}</td>
+        </tr>
+        <tr>
+          <th>Stovykla prasideda:</th>
+          <td>{{ camp.dateFrom }}</td>
+        </tr>
+        <tr>
+          <th>Stovykla baigiasi:</th>
+          <td>{{ camp.dateTo }}</td>
+        </tr>
+        <tr>
+          <th>Stovyklos vietų skaičius:</th>
+          <td>{{ camp.capacity }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+<script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
+  
+  <div class="text-center">
+    <a class="btn btn-success" href="#" onclick="goBack()" style="width: 20%; margin: 0 auto; margin-bottom: 20px;">Grįžti</a>
+  </div>
+  
+{% endblock %}

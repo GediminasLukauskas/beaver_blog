@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Camp, CampInstance, ChildrenCamp, Reservation, CampReview, Score
+from .models import Camp, CampInstance, ChildrenCamp, Reservation, CampReview, Score, AdultCamp
 from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
@@ -174,9 +174,20 @@ def children_camp_detail(request, camp_id):
     context = {'camp': camp}
     return render(request, 'children_camp_detail.html', context=context)
 
-
-
 # ---------------Registracija į Suaugusiuju stovyklas ---------------
+def adult_camp_list(request):
+    camps = AdultCamp.objects.all()
+    context = {'camps': camps}
+    return render(request, 'adult_camp_list.html', context=context)
+
+
+def adult_camp_detail(request, camp_id):
+    if request.method == 'POST':
+        camp = get_object_or_404(AdultCamp, pk=camp_id)
+        return redirect('camp', camp_id)
+    camp = get_object_or_404(AdultCamp, pk=camp_id)
+    context = {'camp': camp}
+    return render(request, 'adult_camp_detail.html', context=context)
 
 # -------------------------------------------------------------
 

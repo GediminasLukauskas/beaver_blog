@@ -22,6 +22,8 @@ urlpatterns = [
     # --------------------
     path('childrencamps/', views.children_camp_list, name='childrencamps'),
     path('children-camps/<int:camp_id>/', views.children_camp_detail, name='children-camp-detail'),
+    path('adultcamps/', views.adult_camp_list, name='adultcamps'),
+    path('adult-camps/<int:camp_id>/', views.adult_camp_detail, name='adult-camp-detail'),
 ]
 
 urlpatterns += [
