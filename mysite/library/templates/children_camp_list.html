@@ -3,21 +3,22 @@
 {% block content %}
 <main class="container text-center mt-5">
   {% load static %}
-  <h1 class="display-4 mb-4">Vaikų stovyklos</h1>
+  <h1 class="display-4 mb-4">Stovyklavietės</h1>
 
   <div class="table-responsive">
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th scope="col">Vaikų stovyklos pavadinimas</th>
+          <th scope="col">Stovyklavietės pavadinimas</th>
         </tr>
       </thead>
       <tbody>
-        {% for c in childrencamps %}
+        {% for c in camps %}
         <tr>
-          <td><a href="{% url 'childrencamps' c.id %}" class="text-decoration-none">{{ c.name }}</a></td>
+          <td><a href="{% url 'children-camp-detail' camp_id=c.id %}" class="text-decoration-none">{{ c.name }}</a></td>
         </tr>
         {% endfor %}
+        
       </tbody>
     </table>
   </div>
@@ -32,4 +33,3 @@
   {% endif %}
 </main>
 {% endblock %}
-

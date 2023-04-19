@@ -21,7 +21,7 @@ urlpatterns = [
     path('score_results/', views.score_results, name='score_results'),
     # --------------------
     path('childrencamps/', views.children_camp_list, name='childrencamps'),
-    path('children-camp_detail/<int:camp_id>', views.children_camp_detail, name='childrencampdetail'),
+    path('children-camps/<int:camp_id>/', views.children_camp_detail, name='children-camp-detail'),
 ]
 
 urlpatterns += [

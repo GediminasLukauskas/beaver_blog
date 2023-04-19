@@ -160,29 +160,21 @@ def camp_detail(request, camp_id):
     return render(request, 'camp.html', context)
 
 # ---------------Registracija į vaikų stovyklas ---------------
-def children_camp_list (request):
+def children_camp_list(request):
     camps = ChildrenCamp.objects.all()
-    context = {
-        'camps': camps
-    }
-    return render(request, 'camps.html', context=context)
+    context = {'camps': camps}
+    return render(request, 'children_camp_list.html', context=context)
+
 
 def children_camp_detail(request, camp_id):
     if request.method == 'POST':
         camp = get_object_or_404(ChildrenCamp, pk=camp_id)
-        content = request.POST['comment']
-        review = CampReview(camp=camp, reviewer=request.user, content=content )
-        review.save()
         return redirect('camp', camp_id)
     camp = get_object_or_404(ChildrenCamp, pk=camp_id)
-    print(dir(camp))
-    reviews = CampReview.objects.filter(camp=camp).all()
-    context = {
-        'camp': camp,
-        'reviews': reviews
+    context = {'camp': camp}
+    return render(request, 'children_camp_detail.html', context=context)
 
-    }
-    return render(request, 'children_camp_detail.html', context)
+
 
 # ---------------Registracija į Suaugusiuju stovyklas ---------------
 
