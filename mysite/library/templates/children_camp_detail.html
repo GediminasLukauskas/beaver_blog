@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ camp.name }}</h1>
+  <p>{{ camp.summary }}</p>
+  <p><strong>Data:</strong> {{ camp.dateFrom|date:"Y-m-d" }} - {{ camp.dateTo|date:"Y-m-d" }}</p>
+  <p><strong>Laisvos vietos:</strong> {{ available_places }}</p>
+{% endblock %}

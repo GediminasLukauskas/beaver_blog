@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <h3 class="mb-4">Registracija</h3>
+      <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="username" class="form-label">Vartotojo vardas</label>
+          <input name="username" type="text" class="form-control" id="username" aria-describedby="usernameHelp">
+          <div id="usernameHelp" class="form-text">Iki 150 simbolių.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">El. paštas</label>
+          <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">Nesidalinsime su niekuo, nesiųsime jokio spamo. Reikalingas naujam slaptažodžiui išsiųsti.</div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Slaptažodis</label>
+          <input name="password" type="password" class="form-control" id="password" aria-describedby="pwdHelp">
+          <div id="pwdHelp" class="form-text">Ne mažiau, kaip 8 simboliai. Negali būti vien tik skaičiai</div>
+        </div>
+        <div class="mb-3">
+          <label for="password2" class="form-label">Pakartoti slaptažodį</label>
+          <input name="password2" type="password" class="form-control" id="password2" aria-describedby="pwd2Help">
+        </div>
+        <button type="submit" class="btn btn-primary">Registruotis</button>
+      </form>
+      <p class="mt-3">Jeigu užsiregistravote anksčiau, <a href="{% url 'login'%}"><strong>prisijunkite.</strong></a></p>
+    </div>
+  </div>
+</div>
+{% endblock %}

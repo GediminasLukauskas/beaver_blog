@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %} 
+
+<main class="main-style">
+<div class="container camp">
+    <h4>{{ camp.name }}</h4>
+    <hr/>
+    <p>{{ camp.summary }}</p>
+    </hr>
+</div>
+</br>
+<h4>Atsiliepimai:</h4>
+
+{% if reviews %}
+  {% for review in reviews %}
+    <hr>
+    <strong>{{ review.reviewer }}</strong>, <em>{{ review.date_created}}</em>
+    <p>{{ review.content }}</p>
+  {% endfor %}
+{% else %}
+  <p>Ši stovykla dar neturi atsiliepimų.</p>
+{% endif %}
+
+    {% if user.is_authenticated %}
+    <div class="comment-form">
+      <h3>Palikti atsiliepimą:</h3>
+      <form method="POST">
+          {% csrf_token %}
+          <label for="comment">Komentaras:</label>
+          <textarea name="comment" id="comment" cols="30" rows="5" class="form-control" required></textarea>
+          <br>
+          <button type="submit" class="btn btn-primary">Siųsti</button>
+      </form>
+  </div>
+    {% endif %}
+</main>
+{% endblock %}
+

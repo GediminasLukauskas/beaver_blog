@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if user_score %}
+    <div class="text-center" style="background-color: #355E3B; padding: 10px 0; text-align: center; margin-left: 70; margin-right: 70;">
+        <h2 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Jūsų paskutinis rezultatas: {{ user_score.points }} taškų</h2>
+    </div>
+    {% endif %}
+    
+    {% if user_rank %}
+    <div class="text-center" style="background-color: #6c7c59; padding: 8px 0; text-align: center; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+        <p style="font-size: large;">Jūsų vieta "Top 50": {{ user_rank }}. </p>
+    </div>
+    {% endif %}
+    
+    <div class="text-center">
+        <h1>Visų žaidėjų rezultatai</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Vieta</th>
+                    <th>Vartotojas</th>
+                    <th>Rezultatas</th>
+                    <th>Įvedimo data</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for score in all_scores %}
+                    <tr {% if user_score and score.points == user_score.points %} style="font-weight:bold" {% endif %}>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ score.user.username }}</td>
+                        <td>{{ score.points }}</td>
+                        <td>{{ score.created_at }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                
+
+        </table>
+        <div class="container">
+            <div class="row justify-content-center mt-5" style="margin-bottom: 70px; margin-left: 40px; margin-right: 40px;">
+                <a href="{% url 'score_view' %}" class="btn btn-success btn-lg">Naujas žaidimas</a>
+            </div>
+        </div>
+    </div>
+    
+    
+        
+{% endblock %}
+

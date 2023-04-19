@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="d-flex justify-content-centre align-items-start container py-4">
+  <div class="col-md-3">
+    <h1 class="pb-3 mb-4 border-bottom">Stovyklaviečių kalendorius</h1>
+      <div class="col-md-9">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Stovyklavietė</th>
+              <th>Rezervacijos pradžia</th>
+              <th>Rezervacijos pabaiga</th>
+              {% if request.user.is_staff %}
+                <th>Rezervacijos savininkas</th>
+              {% endif %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for reservation in reserved_camps %}
+              <tr>
+                <td>{{ reservation.campsite }}</td>
+                <td>{{ reservation.check_in }}</td>
+                <td>{{ reservation.check_out }}</td>
+                {% if request.user.is_staff %}
+                  <td>{{ reservation.user }}</td>
+                {% endif %}
+              </tr>
+            {% endfor %}
+          </tbody>
+          
+        </table>
+      </div>
+    <h1 class="pb-3 mb-4 border-bottom">Numatomos stovyklos</h1>
+  </div>
+      
+</main> 
+
+
+{% endblock %}

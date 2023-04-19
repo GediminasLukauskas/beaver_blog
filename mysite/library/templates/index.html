@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% load static %} 
+<main>
+
+    
+  <img src="{% static '/img/po_azuolais.jpg' %}" class="rounded mx-auto d-block" alt="zemelapis">
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Poilsiavietės Bebrų užutėkyje</h1>
+        <p class="col-md-8 fs-4">Gražioje vietoje ant upelio kranto įkurta stovyklavietė didesniai kompanijai. Puikiai praleisk laiką su draugais gamtoje.</p>
+        <p><a class="btn btn-lg btn-success" href="{% url 'camps' %}" role="button">Užsakyti</a></p>
+      </div>
+    </div>
+
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+          <h2>Šaudykla #po ąžuolais</h2>
+          <p>Šaudykla įkurta ant Trumpės upelio kranto. Pradedantiesiems puiki galimybė išmokti šaudyti gyvoje gamtoje į paruoštus taikinius. Pažengusiems atveriamos platesnės galimybės. Valandos pasivaikščiojimas po upelio slėnį su skirtinguose vietose įkurdintais taikiniais. Užsisakyk jau dabar!</p>
+          <p><a class="btn btn-lg btn-success" href="{% url 'camps' %}" role="button">Užsakyti</a></p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+          <h2>Stovyklavietė "#pas Šamaną"</h2>
+          <p>norintiems atsipalaiduoti ant upelio kranto, gamtos apsuptyje</p>
+          <p><a class="btn btn-lg btn-success" href="{% url 'camps' %}" role="button">Užsakyti</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+          <h2>Vasaros stovykla "Bebriukai"</h2>
+          <p>Vasaros stovykla jauniesiems gamtos mylėtojams.</p>
+          <p><a class="btn btn-lg btn-success" href="{% url 'camps' %}" role="button">Registruotis</a></p>
+        </div >
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+          <h2>Stovykla "Miško maudynės"</h2>
+          <p>Miško maudynės: unikali, iš Japonijos kilusi penkių pojūčių (rega, klausa, uoslė, lytėjimas, skonis) praktika komandoms, gamtos apsuptyje!</p>
+          <p><a class="btn btn-lg btn-success" href="{% url 'camps' %}" role="button">Registruotis</a></p>
+        </div>
+      </div>
+    </div>
+    
+
+    <footer class="pt-3 mt-4 text-body-secondary border-top">
+      <p class="float-end"><a href="#">Grįšti į viršų</a></p>
+      <p>&copy; 2023 @Gediminas Lukauskas &middot; <a href="/privacy">Privatumas</a></p>
+
+
+    </footer>
+  </div>
+</main>
+
+{% endblock %}

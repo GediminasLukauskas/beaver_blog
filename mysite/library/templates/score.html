@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div class="card p-3" style="width: 35%;">
+    <h2 class="mb-3 text-center"> Šaudymas </h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-success mt-3"  type="submit">Pridėti</button>
+    </form>
+    {% if request.session.points %}
+      <h4 class="mt-3 text-center"> Tarpinis rezultatas po {{ request.session.round }} raundo </h4>
+      <div>
+        {% for p in request.session.points %}
+          <li>{{ forloop.counter }} - {{ p }}</li>
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% if request.session.points %}
+    <div class="mt-3 text-center">
+        Rezultatas: {{ intermediate_sum }}
+    </div>
+{% endif %}
+  </div>
+</div>
+{% endblock %}

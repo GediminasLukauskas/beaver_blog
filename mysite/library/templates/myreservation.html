@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h3>Mano rezervacijos</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Stovyklavietė</th>
+                                <th scope="col">Data nuo</th>
+                                <th scope="col">Data iki</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for reservation in reservations %}
+                            <tr>
+                                <td>{{ reservation.campsite }}</td>
+                                <td>{{ reservation.check_in|date:'Y-m-d' }}</td>
+                                <td>{{ reservation.check_out|date:'Y-m-d' }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+      
+
+

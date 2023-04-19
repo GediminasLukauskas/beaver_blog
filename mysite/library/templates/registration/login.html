@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %} 
+
+<main class="form-signin d-flex flex-column justify-content-center align-items-center" style="height: 75vh;">
+  <form method="post" action="{% url 'login' %}" class="w-50">
+    {% csrf_token %}
+    <h1 class="h3 mb-3 fw-normal text-center">Prisijungti</h1>
+
+    {% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+      Prisijungimo klaida, bandykite dar kartą!
+    </div>
+  {% endif %}
+  
+  {% if next %}
+    {% if user.is_authenticated %}
+      <div class="alert alert-warning" role="alert">
+        Neturite prieigos prie šios informacijos. Turite prisijungti.
+      </div>
+    {% endif %}
+  {% endif %}
+  
+  <div class="form-floating mb-3">
+    <input type="user" class="form-control" id="floatingInput" placeholder="Vartotojas" name="username">
+    <label for="floatingInput">Vartotojas</label>
+  </div>
+  
+  <div class="form-floating mb-3">
+    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+    <label for="floatingPassword">Slaptažodis</label>
+  </div>
+  
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" name="remember-me" value="1"> Prisiminti mane
+    </label>
+  </div>
+  
+  <button class="w-100 btn btn-lg btn-success mb-3" type="submit">Prisijungti</button>
+  
+  </form>
+  <p class="mt-5 mb-3 text-muted"><a href="{% url 'password_reset' %}">Pamiršote slaptažodį?</a></p>
+</main> 
+
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="container text-center mt-5">
+  {% load static %}
+  <h1 class="display-4 mb-4">Stovyklavietės</h1>
+
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Stovyklavietės pavadinimas</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for c in camps %}
+        <tr>
+          <td><a href="{% url 'camp' c.id %}" class="text-decoration-none">{{ c.name }}</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% if user.is_authenticated %}
+  <form method="POST" action="{% url 'reserve-campsite' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success mt-3">Rezervuoti</button>
+  </form>
+  {% else %}
+  <a href="{% url 'register' %}" class="btn btn-success mt-3">Registruotis arba prisijungti, kad galėtumėte rezervuoti</a>
+  {% endif %}
+</main>
+{% endblock %}
+

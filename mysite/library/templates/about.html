@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+<main>
+  <div class="container py-4">
+    <header class="pb-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+        <h1 class="fs-4">Apie mus</h1>
+      </a>
+    </header>
+
+    <div class="row">
+      <div class="col-sm-8 col-md-7 py-4">
+        <h4 class="text-black">Apie mus</h4>
+        <p class="text-muted">Žmogaus elgesys gamtoje – jo sielos veidrodis. – V. Bergas.</p>
+      </div>
+      <div class="col-sm-4 offset-md-1 py-4">
+        <h4 class="text-black">Kontaktai</h4>
+        <ul class="list-unstyled">
+          <li>
+            <h5>Gediminas Lukauskas</h5>
+            <p>Tel. Nr.: +370 601 01577</p>
+            <p>El. paštas: gediminas.lukauskas@hotmail.com</p>
+            <p>Kordinatės: 55.796571, 21.567659</p>
+          </li>
+        </ul>
+        <div class="embed-responsive embed-responsive-4by3">
+          <iframe class="embed-responsive-item" src="https://www.openstreetmap.org/export/embed.html?bbox=21.56373739242554%2C55.794912451489026%2C21.571033000946045%2C55.7980606567378&amp;layer=mapnik&amp;marker=55.79648663981584%2C21.56738519668579" style="border: 1px solid black"></iframe>
+        </div>
+        <p class="my-3"><a href="https://www.openstreetmap.org/?mlat=55.79649&amp;mlon=21.56739#map=17/55.79649/21.56739">Atidaryti žemėlapį</a></p>
+        <hr>
+        <ul class="list-unstyled">
+          <li><a href="https://www.facebook.com/gediminas.lukauskas.3/" class="text-blue">Sekite mus Facebook</a></li>
+          <li><a href="https://www.linkedin.com/in/gediminas-lukauskas-62319b1b6/" class="text-blue">Sekite mus LinkedIN</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</main>
+{% endblock %}
