@@ -9,6 +9,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('index/', views.index, name='index'),
+    path('services/', views.services, name='services'),
+    path('loginservices/', views.loginservices, name='loginservices'),
     path('camps/', views.camps, name='camps'),
     path('calendar/', views.calendar, name='calendar'),
     path('camps/<int:camp_id>', views.camp_detail, name='camp'),

@@ -183,4 +183,21 @@ float: right;
   background-attachment: fixed;
 }
 
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 10q;
+  width: 100%;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.text-start {
+  text-align: left;
+}
+
+.text-end {
+  text-align: right;
+}
+
 

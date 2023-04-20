@@ -198,6 +198,12 @@ def profilis(request):
 def index(request):
     return render(request, 'index.html')
 
+def services(request):
+    return render(request, 'services.html')
+
+def loginservices(request):
+    return render(request, 'loginservices.html')
+
 def about(request):
     return render(request, 'about.html')
 
