@@ -1,0 +1,25 @@
+<!-- success.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title text-center mb-4">Ačiū</h1>
+            <p class="card-text">Jūsų žinutė pakeliui:</p>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>Vardas:</strong> {{ contact.name }}</li>
+              <li class="list-group-item"><strong>El.paštas:</strong> {{ contact.email }}</li>
+              <li class="list-group-item"><strong>Pranešimas:</strong> {{ contact.subject }}</li>
+              <li class="list-group-item"><strong>Žinutė:</strong> {{ contact.message }}</li>
+            </ul>
+            <p class="text-center mt-4"><a href="{% url 'index' %}" class="btn btn-success">Grįšti į pagrindinį puslapį</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

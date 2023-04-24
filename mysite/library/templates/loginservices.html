@@ -3,49 +3,62 @@
 
 {% load static %} 
 <main>
-    
+  <header class="py-5" style="background-image: url('{% static 'img/services.jpg' %}'); background-size: cover; background-position: center;">
+    <div class="container px-5">
+      <div class="row gx-5 justify-content-center">
+          <div class="col-lg-6">
+              <div class="text-center my-5">
+                <h1 class="display-5 fw-bolder text-white mb-2">Paslaugos</h1> 
 <br>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="p-5 mb-4 bg-body-tertiary rounded-3 text-start">
-        <div class="container-fluid py-5">
-          <h1 class="display-5 fw-bold">Stovyklavietės</h1>
-          <p class="col-md-8 fs-4">Gražioje vietoje ant upelio kranto įkurtos stovyklavietės. Puikiai praleisk laiką su draugais gamtoje.</p>
-          <p class="text-end"><a class="btn btn-lg btn-success" href="{% url 'camps' %}" role="button">Peržiūrėti</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <img src="{% static '/img/zemelapis.jpg' %}" class="img-fluid rounded" alt="Stovyklavietės">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <img src="{% static '/img/servicebanner.jpg' %}" class="img-fluid rounded" alt="Vasaros stovykla vaikams">
-    </div>
-    <div class="col-md-6">
-      <div class="p-5 mb-4 bg-body-tertiary rounded-3 text-start">
-        <div class="container-fluid py-5">
-          <h1 class="display-5 fw-bold">Vasaros stovykla vaikams</h1>
-          <p class="col-md-8 fs-4">Vasaros stovykla jauniesiems gamtos mylėtojams.</p>
-          <p class="text-end"><a class="btn btn-lg btn-success" href="{% url 'childrencamps' %}" role="button">Peržiūrėti</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="p-5 mb-4 bg-body-tertiary rounded-3 text-start">
-        <div class="container-fluid py-5">
-          <h1 class="display-5 fw-bold">Stovyklos suaugusiems</h1>
-          <p class="col-md-8 fs-4">Stovyklos Suaugusiems norintiems pasinerti į gamtos glėbį</p>
-          <p class="text-end"><a class="btn btn-lg btn-success" href="{% url 'adultcamps' %}" role="button">Peržiūrėti</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <img src="{% static '/img/adultcamp.jpg' %}" class="img-fluid rounded" alt="Stovyklos suaugusiems">
-    </div>
-  </div>
 
+</header>
+<section id="scroll">
+  <div class="container px-5">
+      <div class="row gx-5 align-items-center">
+          <div class="col-lg-6 order-lg-2">
+              <div class="p-5"><img class="img-fluid rounded-circle" src="{% static '/img/zemelapis.jpg' %}" alt="..." /></div>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+              <div class="p-5">
+                  <h2 class="display-4">Stovyklavietės</h2>
+                  <p>Gražioje vietoje ant upelio kranto įkurtos stovyklavietės. Puikiai praleisk laiką su draugais gamtoje.</p>
+                  <p class="text-end"><a class="btn btn-lg btn-success" href="{% url 'camps' %}" role="button">Peržiūrėti</a></p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<section id="scroll">
+  <div class="container px-5">
+      <div class="row gx-5 align-items-center">
+          <div class="col-lg-6 order-lg-2">
+              <div class="p-5"><img class="img-fluid rounded-circle" src="{% static '/img/servicebanner.jpg' %}" alt="..." /></div>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+              <div class="p-5">
+                  <h2 class="display-4">Vasaros stovykla vaikams</h2>
+                  <p>Vasaros stovykla jauniesiems gamtos mylėtojams.</p>
+                  <p class="text-end"><a class="btn btn-lg btn-success" href="{% url 'childrencamps' %}" role="button">Peržiūrėti</a></p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<section id="scroll">
+  <div class="container px-5">
+      <div class="row gx-5 align-items-center">
+          <div class="col-lg-6 order-lg-2">
+              <div class="p-5"><img class="img-fluid rounded-circle" src="{% static '/img/adultcamp.jpg' %}" alt="..." /></div>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+              <div class="p-5">
+                  <h2 class="display-4">Stovyklos suaugusiems</h2>
+                  <p>Stovyklos Suaugusiems norintiems pasinerti į gamtos glėbį</p>
+                  <p class="text-end"><a class="btn btn-lg btn-success" href="{% url 'adultcamps' %}" role="button">Peržiūrėti</a></p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section> 
+    
 {% endblock %}

@@ -21,6 +21,9 @@ urlpatterns = [
     path('myreservation/', views.reservation_list, name='my-reservation'),
     path('score/', views.score_view, name='score_view'),
     path('score_results/', views.score_results, name='score_results'),
+    path('contact-us/', views.contact_us, name='contact_us'),
+    path('success/<str:name>/<str:email>/<str:subject>/<str:message>/', views.success_view, name='success'),
+    path('contacts/', views.view_contacts, name='view_contacts'),
     # --------------------
     path('childrencamps/', views.children_camp_list, name='childrencamps'),
     path('children-camps/<int:camp_id>/', views.children_camp_detail, name='children-camp-detail'),

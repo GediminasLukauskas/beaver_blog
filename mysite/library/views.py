@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Camp, CampInstance, ChildrenCamp, Reservation, CampReview, Score, AdultCamp
+from .models import Camp, CampInstance, ChildrenCamp, Reservation, CampReview, Score, AdultCamp, ContactUs
 from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import UserUpdateForm, ProfilisUpdateForm, CampReviewForm, ReservationForm, ScoreForm
+from .forms import UserUpdateForm, ProfilisUpdateForm, CampReviewForm, ReservationForm, ScoreForm, ContactUsForm
 from django.urls import reverse
 from django.views import View
 from django.utils import timezone
@@ -214,6 +214,27 @@ def loginservices(request):
 
 def about(request):
     return render(request, 'about.html')
+
+# views.py
+@login_required
+def view_contacts(request):
+    contacts = ContactUs.objects.all()
+    return render(request, 'contacts.html', {'contacts': contacts})
+
+def contact_us(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+        ContactUs.objects.create(name=name, email=email, subject=subject, message=message)
+        return redirect('success', name=name, email=email, subject=subject, message=message)
+    return render(request, 'contact_us.html')
+
+def success_view(request, name, email, subject, message):
+    contact = ContactUs.objects.create(name=name, email=email, subject=subject, message=message)
+    return render(request, 'success.html', {'contact': contact})
+
 
 @csrf_protect
 def register(request):

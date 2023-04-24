@@ -1,5 +1,5 @@
 from django import forms
-from .models import Profilis, CampReview, Reservation, Camp
+from .models import Profilis, CampReview, Reservation, Camp, ContactUs
 from django.contrib.auth.models import User
 from django.forms import DateInput
 
@@ -41,3 +41,7 @@ class ScoreForm(forms.Form):
     points = forms.IntegerField(label='Taškai', min_value=0, max_value=120)
 
 
+class ContactUsForm(forms.ModelForm):
+    class Meta:
+        model = ContactUs
+        fields = ['name', 'email', 'subject', 'message']
