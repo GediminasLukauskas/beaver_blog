@@ -4,10 +4,9 @@
 {% load static %} 
 <main>
     
-  <img src="{% static '/img/po_azuolais.jpg' %}" style="width: 100%; height: auto;" class="rounded mx-auto d-block" alt="zemelapis">
-
-  <div>
-    <div>
+<br>
+  <div class="row">
+    <div class="col-md-6">
       <div class="p-5 mb-4 bg-body-tertiary rounded-3 text-start">
         <div class="container-fluid py-5">
           <h1 class="display-5 fw-bold">Stovyklavietės</h1>
@@ -16,10 +15,15 @@
         </div>
       </div>
     </div>
+    <div class="col-md-6">
+      <img src="{% static '/img/zemelapis.jpg' %}" class="img-fluid rounded" alt="Stovyklavietės">
+    </div>
   </div>
-  
-  <div>
-    <div>
+  <div class="row">
+    <div class="col-md-6">
+      <img src="{% static '/img/servicebanner.jpg' %}" class="img-fluid rounded" alt="Vasaros stovykla vaikams">
+    </div>
+    <div class="col-md-6">
       <div class="p-5 mb-4 bg-body-tertiary rounded-3 text-start">
         <div class="container-fluid py-5">
           <h1 class="display-5 fw-bold">Vasaros stovykla vaikams</h1>
@@ -29,9 +33,8 @@
       </div>
     </div>
   </div>
-  
-  <div>
-    <div>
+  <div class="row">
+    <div class="col-md-6">
       <div class="p-5 mb-4 bg-body-tertiary rounded-3 text-start">
         <div class="container-fluid py-5">
           <h1 class="display-5 fw-bold">Stovyklos suaugusiems</h1>
@@ -39,6 +42,9 @@
           <p class="text-end"><a class="btn btn-lg btn-success" href="{% url 'adultcamps' %}" role="button">Peržiūrėti</a></p>
         </div>
       </div>
+    </div>
+    <div class="col-md-6">
+      <img src="{% static '/img/adultcamp.jpg' %}" class="img-fluid rounded" alt="Stovyklos suaugusiems">
     </div>
   </div>
 

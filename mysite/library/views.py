@@ -9,6 +9,7 @@ from .forms import UserUpdateForm, ProfilisUpdateForm, CampReviewForm, Reservati
 from django.urls import reverse
 from django.views import View
 from django.utils import timezone
+from datetime import date
 
 
 # ------------------ žaidimas ------------------
@@ -110,13 +111,20 @@ def calendar(request):
     num_instances = CampInstance.objects.all().count()
     num_instances_available = CampInstance.objects.filter(status__exact='g').count()
     num_childrenCamp = ChildrenCamp.objects.all().count()
+    num_adultCamp = AdultCamp.objects.all().count()
+    childrenCamp = ChildrenCamp.objects.all()
+    adultCamp = AdultCamp.objects.all()
 
     context = {
         'num_camp': num_camp,
         'num_instances': num_instances,
         'num_instances_available': num_instances_available,
         'num_childrenCamp': num_childrenCamp,
+        'num_adultCamp': num_adultCamp,
         'reserved_camps': reserved_camps,
+        'childrenCamp': childrenCamp,
+        'adultCamp': adultCamp,
+        'today': date.today(),
     }
 
     return render(request, 'calendar.html', context=context)

@@ -20,6 +20,8 @@ class Camp(models.Model):
 
     def get_absolute_url(self):
         return reverse('Poilsiavietės - detalės', args=[str(self.id)])
+    
+
 
 # ------------Vaikų Stovyklos------------
 
