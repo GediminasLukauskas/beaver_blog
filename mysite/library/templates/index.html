@@ -4,48 +4,54 @@
 {% load static %} 
 <main>
     
-  <img src="{% static '/img/po_azuolais.jpg' %}" style="width: 100%; height: auto;" class="rounded mx-auto d-block" alt="zemelapis">
-
-    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-      <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">Poilsiavietės Bebrų užutėkyje</h1>
-        <p class="col-md-8 fs-4">Gražioje vietoje ant upelio kranto įkurta stovyklavietė didesniai kompanijai. Puikiai praleisk laiką su draugais gamtoje.</p>
-        <p><a class="btn btn-lg btn-success" href="{% url 'camps' %}" role="button">Užsakyti</a></p>
-      </div>
-    </div>
-
-    <div class="row align-items-md-stretch">
-      <div class="col-md-6">
-        <div class="h-100 p-5 text-bg-dark rounded-3">
-          <h2>Šaudykla #po ąžuolais</h2>
-          <p>Šaudykla įkurta ant Trumpės upelio kranto. Pradedantiesiems puiki galimybė išmokti šaudyti gyvoje gamtoje į paruoštus taikinius. Pažengusiems atveriamos platesnės galimybės. Valandos pasivaikščiojimas po upelio slėnį su skirtinguose vietose įkurdintais taikiniais. Užsisakyk jau dabar!</p>
-          <p><a class="btn btn-lg btn-success" href="{% url 'camps' %}" role="button">Užsakyti</a></p>
+  <header class="py-5" style="background-image: url('{% static 'img/frontbaner.jpg' %}'); background-size: cover; background-position: center;">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+                <div class="text-center my-5">
+                  <h1 class="display-5 fw-bolder text-white mb-2">Bebrų užutėkis</h1>
+                  <p class="lead text-white-50 mb-5">Nuotykiai prasideda čia!</p>
+                  
+                  </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-md-6">
-        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-          <h2>Stovyklavietė "#pas Šamaną"</h2>
-          <p>norintiems atsipalaiduoti ant upelio kranto, gamtos apsuptyje</p>
-          <p><a class="btn btn-lg btn-success" href="{% url 'camps' %}" role="button">Užsakyti</a></p>
-        </div>
-      </div>
     </div>
-    <div class="row align-items-md-stretch">
-      <div class="col-md-6">
-        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-          <h2>Vasaros stovykla vaikams</h2>
-          <p>Vasaros stovykla jauniesiems gamtos mylėtojams.</p>
-          <p><a class="btn btn-lg btn-success" href="{% url 'childrencamps' %}" role="button">Plačiau</a></p>
-        </div >
-      </div>
-      <div class="col-md-6">
-        <div class="h-100 p-5 text-bg-dark rounded-3">
-          <h2>Stovyklos suaugusiems</h2>
-          <p></p>
-          <p><a class="btn btn-lg btn-success" href="{% url 'adultcamps' %}" role="button">Plačiau</a></p>
+</header>
+<!-- Features section-->
+<section class="py-5 border-bottom" id="features">
+    <div class="container px-5 my-5">
+        <div class="row gx-5">
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
+                <h2 class="h4 fw-bolder">Stovyklavietės</h2>
+                <p>Patirkite naujus pojučius gamtoje. išsirinkite sau tinkančią stovyklavietę ir pramogaukite gamtoje</p>
+                <a class="text-decoration-none" href="{% url 'camps' %}">
+                  Daugiau
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
+                <h2 class="h4 fw-bolder">Vaikų stovyklos</h2>
+                <p>Norite, kad jūsų vaikas daugiau laiko praleistu gryname ore? Patirtų naujų potyrių? Ši stovykla kaip tik Jums. Registruokitės jau dabar</p>
+                <a class="text-decoration-none" href="{% url 'childrencamps' %}">
+                  Daugiau
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-lg-4">
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                <h2 class="h4 fw-bolder">Suaugusiųjų stovyklos</h2>
+                <p>Nusibodo miesto šurmulys? O gal norite ramiai praleisti savaidgalį gamtoje su programa? Iš esamų stovyklų suaugusiems atrasite kas jumis sudomins</p>
+                <a class="text-decoration-none" href="{% url 'adultcamps' %}">
+                    Daugiau
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
         </div>
-      </div>
     </div>
+ 
 </main>
 
 {% endblock %}

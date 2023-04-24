@@ -13,7 +13,7 @@
       <button class="btn btn-success mt-3"  type="submit">Pridėti</button>
     </form>
     {% if request.session.points %}
-      <h4 class="mt-3 text-center"> Tarpinis rezultatas po {{ request.session.round }} raundo </h4>
+      <h4 class="mt-3 text-center"> Tarpinis rezultatas po {{ request.session.round }} šaudymo </h4>
       <div>
         {% for p in request.session.points %}
           <li>{{ forloop.counter }} - {{ p }}</li>

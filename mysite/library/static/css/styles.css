@@ -70,14 +70,11 @@
   z-index: 1500;
 }
 
-
 .row1 {
   text-align: center;
   margin-bottom: 20px;
   display: flex;
   }
-
-
 
 .board1 {
 
@@ -167,6 +164,15 @@ float: right;
   border-color: #f5c6cb;
 }
 
+.alert_sucess {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  color:#198754;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
 .right-align {
   text-align: right;
 }
@@ -199,5 +205,6 @@ float: right;
 .text-end {
   text-align: right;
 }
+
 
 
