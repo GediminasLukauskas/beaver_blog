@@ -1,5 +1,5 @@
 from django import forms
-from .models import Profilis, CampReview, Reservation, Camp, ContactUs
+from .models import Profilis, CampReview, Reservation, Camp, ContactUs,ChildrenRegistration, ChildrenCamp
 from django.contrib.auth.models import User
 from django.forms import DateInput
 
@@ -45,3 +45,21 @@ class ContactUsForm(forms.ModelForm):
     class Meta:
         model = ContactUs
         fields = ['name', 'email', 'subject', 'message']
+
+
+class ChildrenRegistrationForm(forms.ModelForm):
+    children_camp = forms.ModelChoiceField(label='Vaikų stovyklos', queryset=ChildrenCamp.objects.all())
+    children_name = forms.CharField(label='Vaiko vardas')
+    children_dob = forms.DateField(label='Vaiko gimimo data', widget=forms.DateInput(attrs={'type': 'date'}))
+    parent_name = forms.CharField(label='Tėvų arba Globėjų Vardas, Pavardė')
+    phone = forms.CharField(label='Kontaktinis telefono numeris')
+    email = forms.EmailField(label='El. paštas')
+    allergies = forms.CharField(widget=forms.Textarea(attrs={'rows': 5, 'cols': 50}), label='Alergijos ir kita svarbi informacija apie vaiką')
+
+    class Meta:
+        model = ChildrenRegistration
+        fields = ['children_camp', 'children_name', 'children_dob', 'parent_name', 'phone', 'email', 'allergies']
+
+
+
+

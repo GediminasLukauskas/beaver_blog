@@ -98,6 +98,9 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'view_contacts' %}">Žinučių centras</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'registration_list' %}">Registracijos centras</a>
+            </li>
         {% endif %}
         {% if user.is_authenticated %}
         <div class="offcanvas-body">

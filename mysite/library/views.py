@@ -182,6 +182,31 @@ def children_camp_detail(request, camp_id):
     context = {'camp': camp}
     return render(request, 'children_camp_detail.html', context=context)
 
+from django.shortcuts import render, redirect
+from .models import ChildrenRegistration
+from .forms import ChildrenRegistrationForm
+@login_required
+def registration_list(request):
+    registrations = ChildrenRegistration.objects.all()
+    context = {
+        'registrations': registrations
+    }
+    return render(request, 'registration_list.html', context)
+
+def register_children(request):
+    if request.method == 'POST':
+        form = ChildrenRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('registration_success')
+    else:
+        form = ChildrenRegistrationForm()
+    return render(request, 'register_children.html', {'form': form})
+
+def registration_success(request):
+    return render(request, 'registration_success.html')
+
+
 # ---------------Registracija į Suaugusiuju stovyklas ---------------
 def adult_camp_list(request):
     camps = AdultCamp.objects.all()

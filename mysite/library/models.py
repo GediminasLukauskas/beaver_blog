@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from datetime import datetime
+from datetime import datetime, timezone
 from django.contrib.auth.models import User
 from datetime import date
 from PIL import Image
@@ -42,6 +42,9 @@ class ChildrenCamp(models.Model):
 
     def get_absolute_url(self):
         return reverse('vaiku_stovyklos - detalės', args=[str(self.id)])
+
+
+
 
 # ------------Suaugusiuju Stovyklos------------
 
@@ -124,8 +127,26 @@ class Reservation(models.Model):
     def __str__(self):
         return f'{self.user.username}, {self.check_in}, {self.check_out}'
 
-    
+class ChildrenRegistration(models.Model):
+    children_camp = models.ForeignKey(ChildrenCamp, on_delete=models.CASCADE)
+    children_name = models.CharField(max_length=200)
+    children_dob = models.DateField(default=datetime.now)
+    parent_name = models.CharField(max_length=200)
+    phone = models.CharField(max_length=20)
+    email = models.EmailField()
+    allergies = models.TextField(max_length=300)
 
+    class Meta:
+        verbose_name = 'Registracija'
+        verbose_name_plural = 'Registracijos'
+
+    def __str__(self):
+        return f"{self.children_name} {self.parent_name} - {self.children_camp.name}"
+   
+
+
+
+# -------------------------------------------------------------------------------------
 class Score(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     points = models.IntegerField()

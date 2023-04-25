@@ -24,9 +24,14 @@ urlpatterns = [
     path('contact-us/', views.contact_us, name='contact_us'),
     path('success/<str:name>/<str:email>/<str:subject>/<str:message>/', views.success_view, name='success'),
     path('contacts/', views.view_contacts, name='view_contacts'),
+   
     # --------------------
     path('childrencamps/', views.children_camp_list, name='childrencamps'),
     path('children-camps/<int:camp_id>/', views.children_camp_detail, name='children-camp-detail'),
+    path('register_children/', views.register_children, name='register_children'),
+    path('success_children_registration/', views.registration_success, name='registration_success'),
+    path('list_of_registrations', views.registration_list, name='registration_list'),
+    
     path('adultcamps/', views.adult_camp_list, name='adultcamps'),
     path('adult-camps/<int:camp_id>/', views.adult_camp_detail, name='adult-camp-detail'),
 ]
