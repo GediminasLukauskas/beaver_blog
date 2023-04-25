@@ -1,13 +1,18 @@
 {% extends "base.html" %}
+
 {% block content %}
+{% load static %}
 
-  <body>
-    <div class="container">
-      <br>
-      <h1>Sėkmingai atsijungėte!</h1>
-      <hr>
-      <a href="{% url 'login' %}" class="button">Prisijungti iš naujo</a>
+<header class="py-5" style="background-image: url('{% static 'img/logout.jpg' %}'); background-size: cover; background-position: center;">
+  <br><br><br>
+</header>
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6 text-center">
+      <h1 class="mb-4">Atsijungėte sėkmingai!</h1>
+      <p class="lead mb-5">Dabar galite saugiai uždaryti naršyklę.</p>
+      <a href="{% url 'login' %}" class="btn btn-success btn-lg px-4">Prisijungti iš naujo</a>
     </div>
-  </body>
-
+  </div>
+</div>
 {% endblock %}
