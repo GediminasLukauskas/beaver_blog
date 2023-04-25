@@ -10,6 +10,7 @@ from django.conf import settings
 class Camp(models.Model):
     name = models.CharField('Pavadinimas', max_length=200, help_text='Įveskite poilsiavietės pavadinimą')
     summary = models.TextField('Aprašymas', max_length=1000, help_text='Trumpas stovyklavietės aprašymas', null=True)
+    cover = models.ImageField('Viršelis', upload_to='covers', null=True)
 
     class Meta:
         verbose_name = 'Stovyklavietė'
