@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1 class="text-center">Parašykite mums</h1>
+{% load static %}
+<header class="py-5" style="background-image: url('{% static 'img/contact.jpg' %}'); background-size: cover; background-position: center;">
+  <div class="container px-5">
+    <div class="row gx-5 justify-content-center">
+        <div class="col-lg-6">
+            <div class="text-center my-5">
+              <h1 class="display-5 fw-bolder text-white mb-2">Parašykite mums</h1> 
+
+
+</header>
+<br>
   <form method="post" class="mx-auto col-8">
     {% csrf_token %}
     <div class="row mb-3">
