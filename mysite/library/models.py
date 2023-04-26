@@ -22,8 +22,6 @@ class Camp(models.Model):
     def get_absolute_url(self):
         return reverse('Poilsiavietės - detalės', args=[str(self.id)])
     
-
-
 # ------------Vaikų Stovyklos------------
 
 class ChildrenCamp(models.Model):
@@ -32,6 +30,10 @@ class ChildrenCamp(models.Model):
     dateFrom = models.DateField('Nuo', null=True)
     dateTo = models.DateField('Iki', null=True)
     capacity = models.IntegerField("Grupės dydis", help_text='Pasirinkite grupės dydį', null=True)
+
+    @property
+    def vacancies(self):
+        return self.capacity - len(self.registration.all())
 
     class Meta:
         verbose_name = 'Vaikų stovykla'
@@ -43,9 +45,6 @@ class ChildrenCamp(models.Model):
     def get_absolute_url(self):
         return reverse('vaiku_stovyklos - detalės', args=[str(self.id)])
 
-
-
-
 # ------------Suaugusiuju Stovyklos------------
 
 class AdultCamp(models.Model):
@@ -54,6 +53,13 @@ class AdultCamp(models.Model):
     dateFrom = models.DateField('Nuo', null=True)
     dateTo = models.DateField('Iki', null=True)
     capacity = models.IntegerField("Grupės dydis", help_text='Pasirinkite grupės dydį', null=True)
+
+    @property
+    def vacancies(self):
+        return self.capacity - len(self.registration1.all())
+    
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name = 'Suaugusiųjų stovykla'
@@ -116,7 +122,7 @@ class Profilis(models.Model):
             img.thumbnail(output_size)
             img.save(self.nuotrauka.path)
 
-
+# ---------------Registracijos---------------------
 class Reservation(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     campsite = models.ForeignKey(Camp, on_delete=models.CASCADE)
@@ -128,7 +134,7 @@ class Reservation(models.Model):
         return f'{self.user.username}, {self.check_in}, {self.check_out}'
 
 class ChildrenRegistration(models.Model):
-    children_camp = models.ForeignKey(ChildrenCamp, on_delete=models.CASCADE)
+    children_camp = models.ForeignKey(ChildrenCamp, on_delete=models.CASCADE, related_name='registration')
     children_name = models.CharField(max_length=200)
     children_dob = models.DateField(default=datetime.now)
     parent_name = models.CharField(max_length=200)
@@ -143,7 +149,20 @@ class ChildrenRegistration(models.Model):
     def __str__(self):
         return f"{self.children_name} {self.parent_name} - {self.children_camp.name}"
    
+class AdultRegistration(models.Model):
+    adult_camp = models.ForeignKey(AdultCamp, on_delete=models.CASCADE, related_name='registration1')
+    first_name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
+    phone = models.CharField(max_length=20)
+    email = models.EmailField()
+    info = models.TextField(max_length=300)
 
+    class Meta:
+        verbose_name = 'Registracija'
+        verbose_name_plural = 'Registracijos'
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} - {self.adult_camp.name}"
 
 
 # -------------------------------------------------------------------------------------

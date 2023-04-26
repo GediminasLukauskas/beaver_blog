@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Camp, CampInstance, ChildrenCamp, Reservation, CampReview, Score, AdultCamp, ContactUs
+from .models import Camp, CampInstance, ChildrenCamp, Reservation, CampReview, Score, AdultCamp, ContactUs, ChildrenRegistration, AdultRegistration
 from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import UserUpdateForm, ProfilisUpdateForm, CampReviewForm, ReservationForm, ScoreForm, ContactUsForm
+from .forms import UserUpdateForm, ProfilisUpdateForm, CampReviewForm, ReservationForm, ScoreForm, ContactUsForm, ChildrenRegistrationForm, AdultRegistrationForm
 from django.urls import reverse
 from django.views import View
 from django.utils import timezone
@@ -182,9 +182,7 @@ def children_camp_detail(request, camp_id):
     context = {'camp': camp}
     return render(request, 'children_camp_detail.html', context=context)
 
-from django.shortcuts import render, redirect
-from .models import ChildrenRegistration
-from .forms import ChildrenRegistrationForm
+
 @login_required
 def registration_list(request):
     registrations = ChildrenRegistration.objects.all()
@@ -221,6 +219,27 @@ def adult_camp_detail(request, camp_id):
     camp = get_object_or_404(AdultCamp, pk=camp_id)
     context = {'camp': camp}
     return render(request, 'adult_camp_detail.html', context=context)
+
+@login_required
+def adult_registration_list(request):
+    registrations = AdultRegistration.objects.all()
+    context = {
+        'registrations': registrations
+    }
+    return render(request, 'adult_registration_list.html', context)
+
+def register_adult(request):
+    if request.method == 'POST':
+        form = AdultRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('adult_registration_success')
+    else:
+        form = AdultRegistrationForm()
+    return render(request, 'register_adult.html', {'form': form})
+
+def adult_registration_success(request):
+    return render(request, 'adult_registration_success.html')
 
 # -------------------------------------------------------------
 

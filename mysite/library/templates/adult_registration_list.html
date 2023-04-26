@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Vaikų stovyklos registracija</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Stovykla</th>
+        <th scope="col">Vardas</th>
+        <th scope="col">Pavardė</th>
+        <th scope="col">Kontaktinis nr.</th>
+        <th scope="col">El. paštas</th>
+        <th scope="col">Papildoma info</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if registrations %}
+        {% for registration in registrations %}
+          <tr>
+            <td>{{ registration.adult_camp }}</td>
+            <td>{{ registration.first_name }}</td>
+            <td>{{ registration.last_name }}</td>
+            <td>{{ registration.phone }}</td>
+            <td>{{ registration.email }}</td>
+            <td>{{ registration.info }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td colspan="4">Šiuo metu registracijų nėra</td>
+        </tr>
+      {% endif %}
+    </tbody>
+  </table>
+{% endblock %}
+

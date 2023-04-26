@@ -23,13 +23,11 @@
     </table>
   </div>
 
-  {% if user.is_authenticated %}
-  <form method="POST" action="{% url 'reserve-campsite' %}">
+
+  <form method="POST" action="{% url 'register_adult' %}">
     {% csrf_token %}
-    <button type="submit" class="btn btn-success mt-3">Rezervuoti</button>
+    <button type="submit" class="btn btn-success mt-3">Registruotis</button>
   </form>
-  {% else %}
-  <a href="{% url 'register' %}" class="btn btn-success mt-3">Registruotis arba prisijungti, kad galėtumėte rezervuoti</a>
-  {% endif %}
+
 </main>
 {% endblock %}

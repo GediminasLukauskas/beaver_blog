@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-10">
+      <div class="card mt-5">
+        <div class="card-header">
+          <h3>Registracija</h3>
+        </div>
+        <div class="card-body">
+          <form method="POST">
+            {% csrf_token %}
+            <div class="row">
+              <label for="{{ form.adult_camp.id_for_label }}" class="col-sm-4 col-form-label text-sm-right">{{ form.adult_camp.label }}</label>
+              <div class="col-sm-8">
+                {{ form.adult_camp }}
+              </div>
+            </div>
+            <div class="row">
+              <label for="{{ form.first_name.id_for_label }}" class="col-sm-4 col-form-label text-sm-right">{{ form.first_name.label }}</label>
+              <div class="col-sm-8">
+                {{ form.first_name }}
+              </div>
+            </div>
+            <div class="row">
+              <label for="{{ form.last_name.id_for_label }}" class="col-sm-4 col-form-label text-sm-right">{{ form.last_name.label }}</label>
+              <div class="col-sm-8">
+                {{ form.last_name }}
+              </div>
+            </div>
+            <div class="row">
+              <label for="{{ form.phone.id_for_label }}" class="col-sm-4 col-form-label text-sm-right">{{ form.phone.label }}</label>
+              <div class="col-sm-8">
+                {{ form.phone }}
+              </div>
+            </div>
+            <div class="row">
+              <label for="{{ form.email.id_for_label }}" class="col-sm-4 col-form-label text-sm-right">{{ form.email.label }}</label>
+              <div class="col-sm-8">
+                {{ form.email }}
+              </div>
+            </div>
+            <div class="row">
+              <label for="{{ form.info.id_for_label }}" class="col-sm-4 col-form-label text-sm-right">{{ form.info.label }}</label>
+              <div class="col-sm-8">
+                {{ form.info }}
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-sm-4"></div>
+              <div class="col-sm-8">
+                <button type="submit" class="btn btn-success btn-block">Registruotis</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -34,6 +34,9 @@ urlpatterns = [
     
     path('adultcamps/', views.adult_camp_list, name='adultcamps'),
     path('adult-camps/<int:camp_id>/', views.adult_camp_detail, name='adult-camp-detail'),
+    path('adult_registration_list/', views.adult_registration_list, name='adult_registration_list'),
+    path('register_adult/', views.register_adult, name='register_adult'),
+    path('adult_registration_success/', views.adult_registration_success, name='adult_registration_success'),
 ]
 
 urlpatterns += [

@@ -99,7 +99,10 @@
               <a class="nav-link active" aria-current="page" href="{% url 'view_contacts' %}">Žinučių centras</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'registration_list' %}">Registracijos centras</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'registration_list' %}">Vaikų reg. centras</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'adult_registration_list' %}">Suaugusiųjų reg. centras</a>
             </li>
         {% endif %}
         {% if user.is_authenticated %}
@@ -169,6 +172,8 @@
     </ul>
   </div>
   </footer>
+
+  
 
 
     <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
