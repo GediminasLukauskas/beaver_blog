@@ -3,8 +3,6 @@ from .models import Profilis, CampReview, Reservation, Camp, ContactUs,ChildrenR
 from django.contrib.auth.models import User
 from django.forms import DateInput
 
-
-
 class ReservationForm(forms.ModelForm):
     campsite = forms.ModelChoiceField(label='Stovyklavietės', queryset=Camp.objects.all())
     check_in = forms.DateField(label='Registracija nuo:', widget=DateInput(attrs={'type': 'date'}))
@@ -14,15 +12,11 @@ class ReservationForm(forms.ModelForm):
         fields = ['campsite', 'check_in', 'check_out']
         widgets = {'user': forms.HiddenInput()}
 
-
 class CampReviewForm(forms.ModelForm):
     class Meta:
         model = CampReview
         fields = ('content', 'camp', 'reviewer')
         widgets = {'camp': forms.HiddenInput(), 'reviewer': forms.HiddenInput()}
-
-
-
 
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()
@@ -30,7 +24,6 @@ class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'email']
-
 
 class ProfilisUpdateForm(forms.ModelForm):
     class Meta:
@@ -40,12 +33,10 @@ class ProfilisUpdateForm(forms.ModelForm):
 class ScoreForm(forms.Form):
     points = forms.IntegerField(label='Taškai', min_value=0, max_value=120)
 
-
 class ContactUsForm(forms.ModelForm):
     class Meta:
         model = ContactUs
         fields = ['name', 'email', 'subject', 'message']
-
 
 class ChildrenRegistrationForm(forms.ModelForm):
     children_camp = forms.ModelChoiceField(label='Vaikų stovyklos', queryset=ChildrenCamp.objects.all())

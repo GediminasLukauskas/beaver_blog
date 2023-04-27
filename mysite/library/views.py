@@ -93,7 +93,6 @@ def reserve_campsite(request):
         if form.is_valid():
             reservation = form.save(commit=False)
             reservation.user = request.user
-            # Patikriname, ar toks eksempliorius jau yra rezervuotas
             if Reservation.objects.filter(camp_instance=reservation.camp_instance, check_in__lt=reservation.check_out, check_out__gt=reservation.check_in).exists():
                 messages.warning(request, 'Ši stovyklavietė jau užimta pasirinktu laiku.')
                 return redirect('reserve-campsite')
@@ -128,7 +127,6 @@ def calendar(request):
     }
 
     return render(request, 'calendar.html', context=context)
-
 
 @login_required
 def reservation_list(request):
@@ -259,7 +257,6 @@ def loginservices(request):
 def about(request):
     return render(request, 'about.html')
 
-# views.py
 @login_required
 def view_contacts(request):
     contacts = ContactUs.objects.all()
@@ -304,7 +301,6 @@ def register(request):
             messages.error(request, 'Slaptažodžiai nesutampa!')
             return redirect('register')
     return render(request, 'register.html')
-
 
 @login_required
 def profilis(request):
