@@ -31,5 +31,16 @@
   <a href="{% url 'register' %}" class="btn btn-success mt-3">Registruotis arba prisijungti, kad galėtumėte rezervuoti</a>
   {% endif %}
 </main>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
+  
+  <div class="text-center mt-3">
+    <button class="btn btn-secondary" onclick="goBack()"><i class="fa fa-arrow-left"></i> Grįžti</button>
+  </div>
+
 {% endblock %}
 

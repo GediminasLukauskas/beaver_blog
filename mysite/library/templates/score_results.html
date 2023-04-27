@@ -3,13 +3,13 @@
 {% block content %}
     {% if user_score %}
     <div class="text-center" style="background-color: #355E3B; padding: 10px 0; text-align: center; margin-left: 70; margin-right: 70;">
-        <h2 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Jūsų paskutinis rezultatas: {{ user_score.points }} taškų</h2>
+        <h2 class="display-5 fw-bolder text-white mb-2">Jūsų paskutinis rezultatas: {{ user_score.points }} taškų</h2>
     </div>
     {% endif %}
     
     {% if user_rank %}
-    <div class="text-center" style="background-color: #6c7c59; padding: 8px 0; text-align: center; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
-        <p style="font-size: large;">Jūsų vieta "Top 50": {{ user_rank }}. </p>
+    <div class="text-center" style="background-color: #6c7c59; padding: 8px 0; text-align: center;">
+        <p class="display-6 fw-bolder text-white mb-2">Jūsų vieta "Top 50": {{ user_rank }} </p>
     </div>
     {% endif %}
     
