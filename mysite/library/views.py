@@ -257,6 +257,9 @@ def loginservices(request):
 def about(request):
     return render(request, 'about.html')
 
+def pricing(request):
+    return render(request, 'pricing.html')
+
 @login_required
 def view_contacts(request):
     contacts = ContactUs.objects.all()

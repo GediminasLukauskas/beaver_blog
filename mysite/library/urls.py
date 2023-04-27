@@ -16,6 +16,7 @@ urlpatterns = [
     path('camps/<int:camp_id>', views.camp_detail, name='camp'),
     path('register/', views.register, name='register'),
     path('about/', views.about, name='about'),
+    path('pricing/', views.pricing, name='pricing'),
     path('profilis/', views.profilis, name='profilis'),
     path('reserve/', views.reserve_campsite, name='reserve-campsite'),
     path('myreservation/', views.reservation_list, name='my-reservation'),
