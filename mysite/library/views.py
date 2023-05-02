@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Camp, CampInstance, ChildrenCamp, Reservation, CampReview, Score, AdultCamp, ContactUs, ChildrenRegistration, AdultRegistration
+from .models import Camp, CampInstance, ChildrenCamp, Reservation, CampReview, Score, AdultCamp, ContactUs, ChildrenRegistration, AdultRegistration, Package
 from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
@@ -258,7 +258,9 @@ def about(request):
     return render(request, 'about.html')
 
 def pricing(request):
-    return render(request, 'pricing.html')
+    packages = Package.objects.all()
+    context = {'packages': packages}
+    return render(request, 'pricing.html', context)
 
 @login_required
 def view_contacts(request):

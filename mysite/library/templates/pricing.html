@@ -4,73 +4,41 @@
 {% load static %}
 
 <main>  
-
-    <header class="py-5" style="background-image: url('{% static 'img/pricing.jpg' %}'); background-size: cover; background-position: center;">
-      <div class="container px-5">
-        <div class="row gx-5 justify-content-center">
-            <div class="col-lg-6">
-                <div class="text-center my-5">
-                  <h1 class="display-5 fw-bolder text-white mb-2">Kainynas</h1> 
-  <br>
-  
+  <header class="py-5" style="background-image: url('{% static 'img/pricing.jpg' %}'); background-size: cover; background-position: center;">
+    <div class="container px-5">
+      <div class="row gx-5 justify-content-center">
+        <div class="col-lg-6">
+          <div class="text-center my-5">
+            <h1 class="display-5 fw-bolder text-white mb-2">Kainynas</h1> 
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
-<br><br><br>
-  <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-    <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-success">
-            <div class="card-header py-3 text-bg-success border-success">
-          <h4 class="my-0 fw-normal">Bebrų užutėkis</h4>
-        </div>
-        <div class="card-body">
-          <h1 class="card-title pricing-card-title">€120<small class="text-body-success fw-light">/dienai</small></h1>
-          <ul class="list-unstyled mt-3 mb-4">
-            <li style="font-weight: bold;">Į paketą įtraukta:</li>
-            <li>Stovyklavivmo vieta</li>
-            <li>Privatumas</li>
-            <li>Šaudykla 'Po ąžuolais'</li>
-            <li>Stovykla 'Pas šamaną'</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-success">
-            <div class="card-header py-3 text-bg-success border-success">
-          <h4 class="my-0 fw-normal">Po ąžuolais</h4>
-        </div>
-        <div class="card-body">
-          <h1 class="card-title pricing-card-title">€100<small class="text-body-success fw-light">/dienai</small></h1>
-          <ul class="list-unstyled mt-3 mb-4">
-            <li style="font-weight: bold;">Į paketą įtraukta:</li>
-            <li>Stovyklavimo vieta</li>
-            <li>Reikmenys laužui sukurti</li>
-            <li>Taikiniai</li>
-            <li>3 lankai</li>
-            <li>6 strėlės/lanką</li>
-            <li>Lanko apsaugos</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card mb-4 rounded-3 shadow-sm border-success">
-        <div class="card-header py-3 text-bg-success border-success">
-          <h4 class="my-0 fw-normal">Pas šamaną</h4>
-        </div>
-        <div class="card-body">
-          <h1 class="card-title pricing-card-title">€50<small class="text-body-success fw-light">/dienai</small></h1>
-          <ul class="list-unstyled mt-3 mb-4">
-            <li style="font-weight: bold;">Į paketą įtraukta:</li>
-            <li>Stovyklavimo vieta</li>
-            <li>Vieta palapinėm pasistatyti</li>
-            <li>Didžioji palapuinė</li>
-            <li>Reikmenys laužui sukurti</li>
-            <li>Reikmenys mėsai kepti ant laužo</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>  
 
-</main>
-{% endblock %}
+  <br><br><br>
+
+  <div class="row row-cols-1 row-cols-md-3 mb-3 text-center" style="margin-left: 30px; margin-right: 30px;">
+
+  {% for package in packages %}
+  <div class="col">
+    <div class="card mb-4 rounded-3 shadow-sm border-success">
+      <div class="card-header py-3 text-bg-success border-success">
+        <h4 class="my-0 fw-normal">{{ package.name }}</h4>
+      </div>
+  <div class="card-body">
+  <h1 class="card-title pricing-card-title">€{{ package.price }}<small class="text-body-success fw-light">/dienai</small></h1>
+  <ul class="list-unstyled mt-3 mb-4">
+  <li style="font-weight: bold;">Į paketą įtraukta:</li>
+  {% for description in package.description.splitlines %}
+  <li>{{ description }}</li>
+  {% endfor %}
+  </ul>
+  </div>
+  </div>
+  </div>
+  {% endfor %}
+
+    </div>
+  </main>
+  {% endblock %}
