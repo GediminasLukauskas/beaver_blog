@@ -1,12 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
-from django.http import HttpResponse, HttpResponseRedirect
 from .models import Camp, CampInstance, ChildrenCamp, Reservation, CampReview, Score, AdultCamp, ContactUs, ChildrenRegistration, AdultRegistration, Package
 from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserUpdateForm, ProfilisUpdateForm, CampReviewForm, ReservationForm, ScoreForm, ContactUsForm, ChildrenRegistrationForm, AdultRegistrationForm
-from django.urls import reverse
 from django.views import View
 from django.utils import timezone
 from datetime import date
@@ -93,7 +91,7 @@ def reserve_campsite(request):
         if form.is_valid():
             reservation = form.save(commit=False)
             reservation.user = request.user
-            if Reservation.objects.filter(camp_instance=reservation.camp_instance, check_in__lt=reservation.check_out, check_out__gt=reservation.check_in).exists():
+            if Reservation.objects.filter(camp_instance=reservation.camp_instance, check_in__lte=reservation.check_out, check_out__gte=reservation.check_in).exists():
                 messages.warning(request, 'Ši stovyklavietė jau užimta pasirinktu laiku.')
                 return redirect('reserve-campsite')
             reservation.save()

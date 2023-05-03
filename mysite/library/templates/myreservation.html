@@ -8,6 +8,12 @@
         <div class="col-md-8">
             <div class="card mt-5">
                 <div class="card-header">
+                    <div class="card-body">
+                        {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                        {% endfor %}
+                        {% endif %}
                     <h3>Mano rezervacijos</h3>
                 </div>
                 <div class="card-body">
