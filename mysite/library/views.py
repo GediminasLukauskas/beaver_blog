@@ -10,6 +10,7 @@ from django.utils import timezone
 from datetime import date
 
 
+
 # ------------------ žaidimas ------------------
 
 @login_required
@@ -85,6 +86,8 @@ def score_results(request):
 # -----------------------------------------------------------
 
 @login_required
+
+
 def reserve_campsite(request):
     if request.method == 'POST':
         form = ReservationForm(request.POST, initial={'user': request.user})
@@ -99,7 +102,13 @@ def reserve_campsite(request):
             return redirect('my-reservation')
     else:
         form = ReservationForm()
-    return render(request, 'reservation.html', {'form': form})
+
+    now = timezone.now()
+    reserved_camps = Reservation.objects.filter(check_out__gte=now).order_by('check_in')
+    num_camp = Camp.objects.all().count()
+    context = {'form': form, 'reserved_camps': reserved_camps, 'num_camp': num_camp}
+    return render(request, 'reservation.html', context)
+
 
 def calendar(request):
     now = timezone.now()

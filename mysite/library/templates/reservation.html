@@ -26,4 +26,29 @@
         </div>
     </div>
 </div>
+<div class="row mt-4">
+    <div class="col-md-12">
+      <h1 class="pb-3 mb-4 border-bottom">Stovyklaviečių rezervacija</h1>
+      <div class="col-md-12">
+        <table class="table table-striped table-bordered">
+          <thead class="bg-success text-white">
+            <tr>
+                <th>Rezervacijos pradžia</th>
+                <th>Rezervacijos pabaiga</th>
+                <th>Stovyklavietė</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for reservation in reserved_camps %}
+              <tr>
+                  <td>{{ reservation.check_in }}</td>
+                  <td>{{ reservation.check_out }}</td>
+                  <td>{{ reservation.campsite }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 {% endblock %}
